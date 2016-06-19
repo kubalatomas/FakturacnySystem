@@ -15,15 +15,17 @@ and open the template in the editor.
 }
 
 body {
-    margin: 0;
     font-family: 'Noto Sans', sans-serif;
+    margin: 0 auto;
+    background-color: #F7F7F7;
 }
 #hlavicka {
-    background-color: #00DFFC;
-    width: 100%;
+
+    width: 1000px;
     height: 50px;
     color: white;
-    border-bottom: rgb(0,200,226) solid 10px; 
+
+    margin: 0 auto;
 }
 
 #logo {
@@ -31,7 +33,6 @@ body {
     display: inline-block;
     font-weight: bold;
     font-size: 35px;
-    margin-left: 10px;
     line-height: 50px;
 }
 li {
@@ -40,18 +41,459 @@ li {
     margin-right: 15px;
 }
 
+
 .cistic {
     clear: both;
 }
 
-table {
-    border: 1px solid black;
-    position: relative;
-    margin: 0 auto;
-    margin-top: 50px;
-}
 
 a:link, a:visited, a:active {
     text-decoration: none;
     color: white;
+}
+
+#header {
+    width: 100%;
+    background-color: #00DFFC;
+    border-bottom: rgb(0,200,226) solid 10px;
+}
+#columns {
+    margin: 0 auto;
+    width: 700px;
+    font-size: 16px;
+}
+#column1 {
+    float: left;
+    width: 64%;
+}
+
+#column2 {
+   width: 100%; 
+}
+
+
+
+h1 {
+    border-bottom: 1px solid rgba(95, 95, 95, 0.16);
+    padding-bottom: 3px;
+    color: #5f5f5f;
+}
+
+#h1 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #5f5f5f;
+}
+
+#evidencia_header {
+        border-bottom: 1px solid rgba(95, 95, 95, 0.16);
+    padding-bottom: 3px;
+    margin-bottom: 20px;
+    margin-top: 16px;
+}
+
+form {
+    width: inherit;
+    margin: 0 auto;
+
+}
+
+.box {
+    margin-bottom: 25px;
+    width: 250px;
+}
+
+.label {
+    color: #5f5f5f;
+    margin-bottom: 5px;
+    padding-bottom: 3px;
+
+}
+
+#pagebox {
+    max-width: 1000px;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+
+
+#evidenciabox {
+    color: #5f5f5f;
+    width: 100%;
+    font-size: 14px;
+}
+
+#datumVystavenia {
+    width: 15%;
+}
+
+#cisloFaktury {
+    width: 12%;
+}
+
+#znenieFaktury {
+    width: 36%;
+}
+
+#partner {
+    width: 20%;
+}
+
+#suma {
+    width: 10%;
+}
+
+#emptyEvidencia {
+    text-align: center;
+}
+
+#fakturabox {
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: white;
+    width: 960px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+#hlavickaFaktury {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    padding-bottom: 5px;
+}
+
+#oddelovac {
+    height: 15px;
+}
+
+#userbox {
+    width: 470px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-left: 10px;
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.25); */
+    /* border-left: 1px solid rgba(0, 0, 0, 0.25); */
+    border-right: 1px solid rgba(0, 0, 0, 0.25);
+    float: left;
+}
+
+.cistic {
+    clear: both;
+}
+
+#partnerbox {
+        margin-bottom: 15px;
+    margin-top: 15px;
+    padding-left: 500px;
+}
+
+.partnerinput {
+    margin-bottom: 8px;
+    margin-top: 8px;
+    width: 250px;
+}
+
+.dod_odb {
+    font-weight: bold;
+        padding-bottom: 15px;
+}
+
+#datumy {
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+#datum_vystavenia {
+    width: 470px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-left: 10px;
+    float: left;
+    
+}
+
+#datum_splatnosti {
+        margin-bottom: 15px;
+    margin-top: 15px;
+padding-left: 500px;
+
+}
+
+#znenie {
+        width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+#znenie_faktury_css {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-left: 10px;
+}
+
+#znenie_faktury_input {
+        width: 820px;
+}
+
+#polozky_faktury {
+
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
+        margin-bottom: 15px;
+
+    padding-left: 10px;
+}
+
+#polozky_nadpis {
+    font-weight: bold;
+        margin-top: 15px;
+        margin-bottom: 30px;
+}
+
+#polozka_table {
+        width: 99%;
+
+}
+
+.nazov_table {
+    width: 60%;
+}
+
+.mj_table {
+    width: 10%;
+    text-align: center;
+}
+
+.ks_table {
+    width: 10%;
+    text-align: center;
+}
+
+.suma_table {
+    width: 15%;
+    text-align: center;
+}
+
+.delete_table {
+    width: 15%;
+    text-align: center;
+}
+
+.nazov_input {
+    width: 100%;
+}
+
+.mj_input {
+    width: 100%;
+    text-align: center;
+}
+
+.ks_input {
+    width: 100%;
+    text-align: center;
+}
+
+.suma_input {
+    width: 100%;
+    text-align: center;
+}
+
+.delete_input {
+    width: 100%;
+    text-align: center;
+}
+
+#header_table {
+    height: 65px;
+    vertical-align: top;
+}
+
+#end_of_page {
+        border-top: 1px solid rgba(0, 0, 0, 0.25);
+    margin-bottom: 15px;
+    padding-left: 10px;
+}
+
+#pridaj_button_input {
+    text-align: center;
+    padding: 10px;
+    color: #5f5f5f;
+    font-size: 16px;
+    border: solid 2px rgba(95, 95, 95, 0.72);
+    padding: 10px;
+/*    width: 115px;
+    height: 45px;*/
+    background-color: transparent;
+    transition: color 0.2s, background-color 0.2s;
+    -webkit-transition: color 0.2s, background-color 0.2s;
+    transition: color 0.2s, border 0.2s;
+    -webkit-transition: color 0.2s, border 0.2s;
+}
+
+#pridaj_button_input:hover {
+    color: rgb(0,200,226);
+    background-color: transparent;
+    border: solid 2px rgb(0,200,226);
+}
+
+#pridaj_button {
+        margin: 0 auto;
+    width: 150px;
+    
+}
+
+#akcia {
+    width: 5%;
+}
+
+.fa.fa-eye, .fa.fa-trash {
+    color: #5f5f5f;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#datum_vystavenia_label, #datum_splatnosti_label, #znenie_faktury_css_label, #hlavickaFaktury {
+    font-weight: bold;
+}
+
+.nazov_table_show_label, .pocet_label, .suma_ks_label, .suma_spolu_label, .dph_label, .suma_spolu_dph_label {
+
+    font-weight: bold;
+
+}
+
+.nazov_table_show_label {
+    width: 31%;
+}
+
+.pocet_label {
+    width: 10%;
+    text-align: center;
+}
+
+.suma_ks_label, .suma_spolu_label {
+    width: 18%;
+    text-align: center;    
+}
+
+.dph_label {
+    width: 8%;
+    text-align: center;       
+}
+
+.suma_spolu_dph_label {
+    width: 15%;
+    text-align: center;      
+}
+
+.pocet, .suma_ks, .suma_spolu, .dph, .suma_spolu_dph {
+    text-align: center;
+}
+
+#sumarum {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    float: right;
+    margin-right: 20px;
+}
+
+#uhrada {
+    width: 110px;
+}
+
+#uhrada_row {
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
+    font-weight: bold;
+}
+
+#message {
+    float: right;
+    vertical-align: middle;
+    line-height: 40px;
+    color: green;
+    font-size: 18px;
+}
+
+#evidenciabox_header {
+    height: 50px;
+    vertical-align: top;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+#error_pridaj {
+        text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    color: red;
+    font-size: 15px;
+}
+
+#zmen_button_input {
+    text-align: center;
+    padding: 10px;
+    color: #5f5f5f;
+    font-size: 16px;
+    border: solid 2px rgba(95, 95, 95, 0.72);
+    padding: 10px;
+/*    width: 115px;
+    height: 45px;*/
+    background-color: transparent;
+    transition: color 0.2s, background-color 0.2s;
+    -webkit-transition: color 0.2s, background-color 0.2s;
+    transition: color 0.2s, border 0.2s;
+    -webkit-transition: color 0.2s, border 0.2s;
+}
+
+#zmen_button_input:hover {
+    color: rgb(0,200,226);
+    background-color: transparent;
+    border: solid 2px rgb(0,200,226);
+}
+
+#zmen_button {
+        margin: 0 auto;
+    width: 150px;
+    
+}
+
+#error_zmen {
+        text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    color: red;
+    font-size: 15px;
+}
+
+#error_zmen {
+        text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    color: red;
+    font-size: 15px;
+}
+
+#error_zmen_success {
+        text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    color: green;
+    font-size: 15px;
+}
+
+#domov_table {
+    color:#5f5f5f;
+}
+
+.label_domov {
+        font-weight: bold;
+            color: #5f5f5f;
+    margin-bottom: 5px;
+    padding-bottom: 3px;
+     width: 330px;
+
 }

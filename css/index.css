@@ -11,7 +11,7 @@ and open the template in the editor.
 
 body {
     font-family: 'Noto Sans', sans-serif;
-    background-color: #00B4CC;
+    background-color: rgb(245, 245, 245);
     margin: 0;
     color: white;
 }
@@ -37,38 +37,33 @@ body {
     bottom: 0;
     margin: auto;
     padding: 20px;
+    color: #5f5f5f;
 }
 
-.label {
-    color: white;
-    padding: 15px;
-    width: 150px;
 
-}
 
 #login_button {
     text-align: center;
     width: inherit;
     padding: 10px;
-    color: #fff;
+    color: #5f5f5f;
     font-size: 20px;
-    border: solid 2px white;
-    border-radius: 10px;
+    border: solid 2px rgba(95, 95, 95, 0.72);
     padding: 10px;
     margin-top: 35px;
     background-color: transparent;
     transition: color 0.2s, background-color 0.2s;
     -webkit-transition: color 0.2s, background-color 0.2s;
+    transition: color 0.2s, border 0.2s;
+    -webkit-transition: color 0.2s, border 0.2s;    
 }
 
 #login_button:hover {
-    color: #00B4CC;
-    background-color: white;
+    color: rgb(0,200,226);
+    background-color: transparent;
+    border: solid 2px rgb(0,200,226);
 }
-h1 {
-    color: rgba(108, 180, 234, 1);
-    text-align: center;
-}
+
 
 #reg {
     margin: auto 0;
@@ -77,26 +72,28 @@ h1 {
     text-align: center;
     padding: 5px;
     margin-top: 15px;
+    color: #5f5f5f;
+    transition: color 0.2s;
+    -webkit-transition: color 0.2s;        
 }
+#reg:hover {
+    color: rgb(0,200,226);
+}
+
 
 a:link, a:visited, a:active {
     text-decoration: none;
     color: white;
 }
-#login, #password {
+#login, #login_input, #password_input {
     font-size: 20px;
-    border-radius: 10px;
     padding-left: 5px;
     padding-right: 5px;  
-    color: rgba(0,0,0,0.5)
-}
-tr {
-    padding: 5px;
+    color: rgba(0,0,0,0.5);
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-table {
-    font-size: 20px;
-}
 
 #tablelogin {
     text-align: center;
@@ -109,5 +106,20 @@ fieldset {
 h1 {
     text-align: center;
     font-size: 28px;
-    color: white;
+    color: #5f5f5f;
+}
+
+.label {
+    color: #5f5f5f;
+    text-align: center;
+    margin-bottom: 5px;
+    padding-bottom: 3px;
+}
+
+#message {
+        text-align: center;
+    padding: 10px;
+    margin: 0 auto;
+    color: red;
+    font-size: 15px;
 }

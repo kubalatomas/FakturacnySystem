@@ -5,86 +5,48 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-include("user.php");
+include 'user.php';
+
 session_start();
 if (empty($_SESSION['loginuser'])) {
     header("Location: index.php");
 }
-?>
+$user = unserialize($_SESSION['loginuser']);
+?> 
 
 <html>
     <head>
         <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" type='text/css'>
+        <script src="http://code.jquery.com/jquery-1.12.0.min.js" type='text/css'></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js" type='text/css'></script>
+        <script src="jquery/jquery-2.2.0.min.js"></script>
+        <title>FaktúryOnline</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="css/system.css"/>
+        <link rel="stylesheet" href="css/system.css" type='text/css'/>
     </head>
     <body>
-        <header>
-            <div id="hlavicka">
-                <span id="logo">
-                    FaktúryOnline
-                </span>
-                <span id="navmenu">
-                    <nav>
-                        <ul>
-                            <li>Domov</li>
-                            <li>Nastavenia</li>
-                            <li><a href="logout.php">Odhlásiť</a></li>
-                        </ul>
-                        <div class="cistic"></div>
-                    </nav>
-                </span>
-            </div>
-        </header>
-        <table>
-            <tr>
-                <td>Login</td>
-                <td><?php echo $_SESSION['loginuser']->getLogin()?></td>
-            </tr>
-            <tr>
-                <td>Heslo</td>
-                <td><?php echo $_SESSION['loginuser']->getPassword()?></td>
-            </tr>
-            <tr>
-                <td>Spoločnost/Osoba</td>
-                <td><?php echo $_SESSION['loginuser']->getNazovFirmy()?></td>
-            </tr>
-            <tr>
-                <td>Ulica</td>
-                <td><?php echo $_SESSION['loginuser']->getUlica()?></td>
-            </tr>
-            <tr>
-                <td>PSČ</td>
-                <td><?php echo $_SESSION['loginuser']->getPsc()?></td>
-            </tr>
-            <tr>
-                <td>Štát</td>
-                <td><?php echo $_SESSION['loginuser']->getStat()?></td>
-            </tr>
-            <tr>
-                <td>IČO</td>
-                <td><?php echo $_SESSION['loginuser']->getICO()?></td>
-            </tr>
-            <tr>
-                <td>DIČ</td>
-                <td><?php echo $_SESSION['loginuser']->getDic()?></td>
-            </tr>
-            <tr>
-                <td>Číslo účtu</td>
-                <td><?php echo $_SESSION['loginuser']->getCisloUctu()?></td>
-            </tr>
-            <tr>
-                <td>Banka</td>
-                <td><?php echo $_SESSION['loginuser']->getBanka()?></td>
-            </tr>
-            <tr>
-                <td>IBAN</td>
-                <td><?php echo $_SESSION['loginuser']->getIban()?></td>
-            </tr>
-            <tr>
-                <td>SWIFT</td>
-                <td><?php echo $_SESSION['loginuser']->getSwift()?></td>
-            </tr>             
-        </table>
+
+        <?php
+            include 'header.php';
+        ?>
+        <?php
+            if(isset($_GET['menu'])) {
+                if($_GET['menu'] == "nastavenia") {
+                    include 'nastavenia.php';
+                } else if ($_GET['menu'] == "logout") {
+                    include 'logout.php';
+                } else if ($_GET['menu'] == "evidencia") {
+                    include 'evidencia.php';
+                } else if ($_GET['menu'] == "pridaj") {
+                    include 'pridaj.php';
+                }              
+            } else {
+                include 'domov.php';
+                
+            }
+
+        ?>
+                 
     </body>
 </html>

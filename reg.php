@@ -6,13 +6,19 @@
  * and open the template in the editor.
  */
 
-$error = "";
 
-include("user.php");
+$errors = array();
+
+include 'user.php';
+include 'checkdata.php';
+include 'config.php';
+//include("database.php");
+
+
 
 if (!empty($_POST['submit'])) {
-    if (empty($_POST['login']) || empty($_POST['password']) || empty($_POST['nazovFirmy']) || empty($_POST['ulica']) || empty($_POST['mesto']) || empty($_POST['psc']) || empty($_POST['stat']) || empty($_POST['ico']) || empty($_POST['dic']) || empty($_POST['cisloUctu']) || empty($_POST['banka']) || empty($_POST['iban']) || empty($_POST['swift'])) {
-        $error = "Nevyplnili ste všetky údaje";
+    if (empty($_POST['login']) || empty($_POST['password']) || empty($_POST['nazovFirmy']) || empty($_POST['ulica']) || empty($_POST['mesto']) || empty($_POST['psc']) || empty($_POST['ico']) || empty($_POST['dic']) || empty($_POST['banka']) || empty($_POST['iban'])) {
+        array_push($errors, "Nevyplnili ste všetky údaje");
     } else {
         $login=$_POST['login'];
         $password=$_POST['password'];
@@ -20,66 +26,97 @@ if (!empty($_POST['submit'])) {
         $ulica=$_POST['ulica'];
         $mesto=$_POST['mesto'];
         $psc=$_POST['psc'];
-        $stat=$_POST['stat'];
         $ico=$_POST['ico'];
         $dic=$_POST['dic'];
-        $cisloUctu=$_POST['cisloUctu'];
         $banka=$_POST['banka'];
         $iban=$_POST['iban'];
-        $swift=$_POST['swift'];
-        $connection = mysqli_connect("localhost", "root", "root");
-        if (!$connection) {
-            die("Nepripojenie databazy");
+        $login = strip_tags($login);
+        $password = strip_tags($password);
+        $nazovFirmy = strip_tags($nazovFirmy);
+        $ulica = strip_tags($ulica);
+        $mesto = strip_tags($mesto);
+        $psc = strip_tags($psc);
+        $ico = strip_tags($ico);
+        $dic = strip_tags($dic);
+        $banka = strip_tags($banka);
+        $iban = strip_tags($iban);
+        
+        if (overLogin($login) != null) {
+            array_push($errors, overLogin($login));
         }
-        $login = stripslashes($login);
-        $password = stripslashes($password);
-        $nazovFirmy = stripslashes($nazovFirmy);
-        $ulica = stripslashes($ulica);
-        $mesto = stripslashes($mesto);
-        $psc = stripslashes($psc);
-        $stat = stripslashes($stat);
-        $ico = stripslashes($ico);
-        $dic = stripslashes($dic);
-        $cisloUctu = stripslashes($cisloUctu);
-        $banka = stripslashes($banka);
-        $iban = stripslashes($iban);
-        $swift = stripslashes($swift);
-        $login = mysqli_real_escape_string($connection, $login);
-        $password = mysqli_real_escape_string($connection, $password);
-        $nazovFirmy = mysqli_real_escape_string($connection, $nazovFirmy);
-        $ulica = mysqli_real_escape_string($connection, $ulica);
-        $mesto = mysqli_real_escape_string($connection, $mesto);
-        $psc = mysqli_real_escape_string($connection, $psc);
-        $stat = mysqli_real_escape_string($connection, $stat);
-        $ico = mysqli_real_escape_string($connection, $ico);
-        $dic = mysqli_real_escape_string($connection, $dic);
-        $banka = mysqli_real_escape_string($connection, $banka);
-        $iban = mysqli_real_escape_string($connection, $iban);
-        $swift = mysqli_real_escape_string($connection, $swift);
-        $cisloUctu = mysqli_real_escape_string($connection, $cisloUctu);
-        $db = mysqli_select_db($connection, "faktury_online");
+        if (overPassword($password) != null) {
+            array_push($errors, overPassword($password));
+        }        
+        if (overNazovFirmy($nazovFirmy) != null) {
+            array_push($errors, overNazovFirmy($nazovFirmy));
+        }
+        if (overUlicu($ulica) != null) {
+            array_push($errors, overUlicu($ulica));
+        }
+        if (overMesto($mesto) != null) {
+            array_push($errors, overMesto($mesto));
+        }
+        if (overPSC($psc) != null) {
+            array_push($errors, overPSC($psc));
+        }
+        if (overICO($ico) != null) {
+            array_push($errors, overICO($ico));
+        }
+        if (overDIC($dic) != null) {
+            array_push($errors, overDIC($dic));
+        }
+        if (overBanka($banka) != null) {
+            array_push($errors, overBanka($banka));
+        }
+        if (overIBAN($iban) != null) {
+            array_push($errors, overIBAN($iban));
+        }
+        
+        $conn = mysqli_connect($dbhost, $dblogin, $dbpassword);
+        
+        $db = mysqli_select_db($conn, $dbname);
         if (!$db) {
             die("Nevybralo databazu");
         }
-        $query = mysqli_query($connection, "SELECT login, password FROM uzivatelia WHERE login='$login'");
+        $query = mysqli_query($conn, "SELECT login FROM uzivatelia WHERE login='$login'");
         if (!$query) {
-            die("Nevybralo z databazy");
+            die();
         }
         if (mysqli_num_rows($query) == 1) {
-            $error = "Užívateľ s takýmto loginom už existuje.";
+            $result = true;
         } else {
-            $sql = "INSERT INTO uzivatelia (login, password, subject, ulica, mesto, psc, stat, ico, dic, cislo_uctu, banka, iban, swift) VALUES ('$login', '$password', '$nazovFirmy', '$ulica', '$mesto', '$psc', '$stat', '$ico', '$dic', '$cisloUctu', '$banka', '$iban', '$swift')";
-           
-            if (mysqli_query($connection, $sql)) {
+            $result = false;
+        }     
+        
+        if ($result) {
+            array_push($errors, "Užívateľ s takýmto prihlasovacím menom existuje. Zvoľte iné");
+        }
+        if(count($errors) == 0) {
+            $login = mysqli_real_escape_string($conn, $login);
+            $password = mysqli_real_escape_string($conn, $password);
+            $password = password_hash($password, PASSWORD_DEFAULT);
+            $nazovFirmy = mysqli_real_escape_string($conn, $nazovFirmy);
+            $ulica = mysqli_real_escape_string($conn, $ulica);
+            $mesto = mysqli_real_escape_string($conn, $mesto);
+            $psc = mysqli_real_escape_string($conn, $psc);
+            $ico = mysqli_real_escape_string($conn, $ico);
+            $dic = mysqli_real_escape_string($conn, $dic);
+            $banka = mysqli_real_escape_string($conn, $banka);
+            $iban = mysqli_real_escape_string($conn, $iban);
+            $stat = "Slovenská Republika";
+            $db = mysqli_select_db($conn, $dbname);
+            if (!$db) {
+                die("Nevybralo databazu");
+            }
+            $sql = "INSERT INTO uzivatelia (login, password, subject, ulica, mesto, psc, stat, ico, dic, banka, iban) VALUES ('$login', '$password', '$nazovFirmy', '$ulica', '$mesto', '$psc', '$stat', '$ico', '$dic', '$banka', '$iban')";
+            if (mysqli_query($conn, $sql)) {
                 header("Location: index.php");
             } else {
-                mysqli_error($connection);
+                $error = "Nepodarilo sa zaregistrovať uživateľa";
             }
-            
-            
-        }
-        mysqli_close($connection);
-        
-    }        
+
+        } 
+        mysqli_close($conn); 
+    }   
+   
 }
-?>

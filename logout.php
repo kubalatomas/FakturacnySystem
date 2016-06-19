@@ -5,10 +5,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-session_start();
+include 'config.php';
+
 if (!empty($_SESSION['loginuser'])) {
+
     session_destroy();
     header("Location: index.php");
 } else {
     header("Location: index.php");
 }
+?>
+
+

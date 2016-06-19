@@ -16,26 +16,26 @@ Class User {
     private $stat;
     private $ico;
     private $dic;
-    private $cisloUctu;
     private $banka;
     private $iban;
-    private $swift;
+    private $faktury;
+    private $id;
     
     
-    public function __construct($login, $password, $nazovFirmy, $ulica, $mesto, $psc, $stat, $ico, $cisloUctu, $banka, $iban, $swift, $dic) {
+    public function __construct($login, $password, $nazovFirmy, $ulica, $mesto, $psc, $ico, $banka, $iban, $dic, $id) {
         $this->login = $login;
         $this->password = $password;
         $this->nazovFirmy = $nazovFirmy;
         $this->ulica = $ulica;
         $this->mesto = $mesto;
         $this->psc = $psc;
-        $this->stat = $stat;
+        $this->stat = "Slovenská republika";
         $this->ico = $ico;
         $this->dic = $dic;
-        $this->cisloUctu = $cisloUctu;
         $this->banka = $banka;
         $this->iban = $iban;
-        $this->swift = $swift;
+        $this->faktury = array();
+        $this->id = $id;
     }
 
     function getLogin() {
@@ -77,29 +77,22 @@ Class User {
         return $this->dic;
     }
 
-    function getCisloUctu() {
-        return $this->cisloUctu;
-    }
-
     function getBanka() {
         return $this->banka;
+    }
+    
+    function getFaktury() {
+        return $this->faktury;
     }
 
     function getIban() {
         return $this->iban;
     }
 
-    function getSwift() {
-        return $this->swift;
-    }
-
     function setDic($dic) {
         $this->dic = $dic;
     }
 
-    function setCisloUctu($cisloUctu) {
-        $this->cisloUctu = $cisloUctu;
-    }
 
     function setBanka($banka) {
         $this->banka = $banka;
@@ -107,14 +100,6 @@ Class User {
 
     function setIban($iban) {
         $this->iban = $iban;
-    }
-
-    function setSwift($swift) {
-        $this->swift = $swift;
-    }
-
-        function setPassword($password) {
-        $this->password = $password;
     }
 
     function setNazovFirmy($nazovFirmy) {
@@ -133,14 +118,14 @@ Class User {
         $this->psc = $psc;
     }
 
-    function setStat($stat) {
-        $this->stat = $stat;
-    }
-
     function setIco($ico) {
         $this->ico = $ico;
     }
 
+
+    function getId() {
+        return $this->id;
+    }
 
 
 }

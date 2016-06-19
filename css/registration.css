@@ -10,7 +10,7 @@ and open the template in the editor.
 
 body {
     font-family: 'Noto Sans', sans-serif;
-    background-color: #00B4CC;
+    background-color: rgb(245, 245, 245);
     margin: 0;
 }
 
@@ -24,74 +24,64 @@ body {
 }
 
 #registrationform {
-    margin: auto;
+    margin: 0 auto;
     padding: 20px;
-    width: 460px;
+    width: 360px;
     height: 1395px;
 }
 
 
-tr {
-    padding: 5px;
-}
-
-.label {
-    color: white;
-    padding: 15px;
-    width: 220px;
-}
-
 #login, #password, #nazovFirmy, #ulica, #mesto, #psc, #stat, #ico, #cisloUctu, #banka, #iban, #swift, #dic {
     font-size: 20px;
-    width: 350px;
-    border-radius: 10px;
     padding-left: 5px;
     padding-right: 5px;
-    color: rgba(0,0,0,0.5)
+    color: rgba(0,0,0,0.5);
+    width: 360px;
+    margin-bottom: 30px;
 }
 
 #reg {
-    color: #fff;
+    color: #5f5f5f;
     font-size: 20px;
-    border: solid 2px white;
-    border-radius: 10px;
+    border: solid 2px rgba(95, 95, 95, 0.72);
     padding: 10px;
     background-color: transparent;
     transition: color 0.2s, background-color 0.2s;
     -webkit-transition: color 0.2s, background-color 0.2s;
+    transition: color 0.2s, border 0.2s;
+    -webkit-transition: color 0.2s, border 0.2s;
     margin-top: 35px;
     margin-bottom: 35px;
+    width: 100%;
 }
 
 #reg:hover {
-    color: #00B4CC;
-    background-color: white;
+    color: rgb(0,200,226);
+    background-color: transparent;
+    border: solid 2px rgb(0,200,226);
 }
+
+
 
 #divreg{
     text-align: center;
 }
 
 #error {
-    width: 600px;
     text-align: center;
     padding: 10px;
-    border-radius: 10px;
-    border: white solid 2px;
     margin: 0 auto;
-    color: white;
-    font-size: 20px;
+    color: red;
+    font-size: 15px;
 }
-dl, dd {
-    display: block;
-}
-
-fieldset {
-    border: none 0;
-}
-
 h1 {
     text-align: center;
     font-size: 28px;
-    color: white;
+    color: #5f5f5f;
+}
+
+.label {
+    color: #5f5f5f;
+    margin-bottom: 5px;
+    padding-bottom: 3px;
 }
